@@ -1,0 +1,4 @@
+name: xArm7
+protocol: zenoh/shm
+ip: /workspace/sandbox/mc_robot_manager/
+port: 100
