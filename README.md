@@ -1,2 +1,2 @@
 # mc_xarm
-Interface between xArm robots and mc_rtc.
+A software representation, or a robot module, or xArm robots.
