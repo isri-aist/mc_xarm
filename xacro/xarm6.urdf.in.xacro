@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="xarm6">
+
+  <!-- Global properties expected by xarm macros -->
+  <xacro:property name="mesh_suffix" value="stl"/>
+  <xacro:property name="is_ros2" value="false"/>
+  <xacro:property name="use_xacro_load_yaml" value="true"/>
+  <xacro:property name="mesh_path" value="file://@XARM_DESCRIPTION_SHARE@/meshes"/>
+
+  <!-- Include common macros (materials, link helpers, etc.) -->
+  <xacro:include filename="@XARM_DESCRIPTION_SHARE@/urdf/common/common.material.xacro"/>
+  <xacro:include filename="@XARM_DESCRIPTION_SHARE@/urdf/common/common.link.xacro"/>
+
+  <!-- Include the xarm6 macro definition -->
+  <xacro:include filename="@XARM_DESCRIPTION_SHARE@/urdf/xarm6/xarm6.urdf.xacro"/>
+
+  <!-- Actually invoke the macro to generate links and joints -->
+  <xacro:xarm6_urdf
+    prefix=""
+    kinematics_params_filename="@XARM_DESCRIPTION_SHARE@/config/kinematics/default/xarm6_default_kinematics.yaml"
+  />
+</robot>

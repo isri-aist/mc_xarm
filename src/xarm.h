@@ -17,30 +17,46 @@ struct MC_ROBOTS_DLLAPI XArmRobotModule : public mc_rbdyn::RobotModule
 
 extern "C"
 {
-  ROBOT_MODULE_API void MC_RTC_ROBOT_MODULE(std::vector<std::string> & names)
+  ROBOT_MODULE_API void MC_RTC_ROBOT_MODULE(std::vector<std::string> & names) // NOLINT(readability-identifier-naming)
   {
-    names = {"xArm7", "xArm7FloatingBase"};
+    names = {"xArm5", "xArm5FloatingBase", "xArm6", "xArm6FloatingBase", "xArm7", "xArm7FloatingBase"};
   }
   ROBOT_MODULE_API void destroy(mc_rbdyn::RobotModule * ptr)
   {
-    delete ptr;
+    delete ptr; // NOLINT(cppcoreguidelines-owning-memory)
   }
   ROBOT_MODULE_API mc_rbdyn::RobotModule * create(const std::string & n)
   {
-    // TODO: add suport for xArm5 and xArm6
-    ROBOT_MODULE_CHECK_VERSION("xArm7")
+    ROBOT_MODULE_CHECK_VERSION("xArm")
+
+    if(n == "xArm5")
+    {
+      return new mc_robots::XArmRobotModule("xarm5", true);
+    }
+    if(n == "xArm5FloatingBase")
+    {
+      return new mc_robots::XArmRobotModule("xarm5", false);
+    }
+
+    if(n == "xArm6")
+    {
+      return new mc_robots::XArmRobotModule("xarm6", true);
+    }
+    if(n == "xArm6FloatingBase")
+    {
+      return new mc_robots::XArmRobotModule("xarm6", false);
+    }
+
     if(n == "xArm7")
     {
       return new mc_robots::XArmRobotModule("xarm7", true);
     }
-    else if(n == "xArm7FloatingBase")
+    if(n == "xArm7FloatingBase")
     {
       return new mc_robots::XArmRobotModule("xarm7", false);
     }
-    else
-    {
-      mc_rtc::log::error("xArm module Cannot create an object of type {}", n);
-      return nullptr;
-    }
+
+    mc_rtc::log::error("xArm module cannot create an object of type {}", n);
+    return nullptr;
   }
 }

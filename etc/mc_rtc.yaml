@@ -1,2 +1,2 @@
-MainRobot: xArm7
+MainRobot: xArm7 # or xArm5, xArm6
 Enabled: Posture
