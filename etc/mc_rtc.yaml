@@ -1,2 +1,3 @@
-MainRobot: xArm7 # or xArm5, xArm6
+# Avilable robots: xArm5, xArm5FloatingBase, xArm6, xArm6FloatingBase, xArm7, xArm7FloatingBase
+MainRobot: xArm7
 Enabled: Posture
