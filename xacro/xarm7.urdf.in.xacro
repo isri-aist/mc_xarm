@@ -10,6 +10,9 @@
   <xacro:include filename="@XARM_DESCRIPTION_SHARE@/urdf/common/common.link.xacro"/>
   <xacro:include filename="@XARM_DESCRIPTION_SHARE@/urdf/xarm7/xarm7.urdf.xacro"/>
 
+  <!-- DEFINES the common materials -->
+  <xacro:common_material prefix=""/>
+
   <xacro:xarm7_urdf
     prefix=""
     kinematics_params_filename="@XARM_DESCRIPTION_SHARE@/config/kinematics/default/xarm7_default_kinematics.yaml"
