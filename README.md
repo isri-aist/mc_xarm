@@ -35,3 +35,6 @@ To test the module is installed correctly
 ```sh
 mc_rtc_ticker -f etc/mc_rtc.yaml
 ```
+<p align="center">
+  <img src="etc/xarm7.png" alt="xArm7 Ticker Test" height="500">
+</p>
