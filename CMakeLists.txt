@@ -41,7 +41,7 @@ set(MC_XARM_URDF_DIR "${MC_XARM_SHARE_DIR}/urdf")
 set(XARM_DESCRIPTION_PATH "${MC_XARM_SHARE_DIR}")
 
 # Models to generate
-set(XARM_MODELS "xarm5" "xarm6" "xarm7")
+set(XARM_MODELS "xarm5" "xarm6" "xarm7" "xarm7_mirror" "lite6")
 
 set(GENERATED_URDF_FILES "")
 

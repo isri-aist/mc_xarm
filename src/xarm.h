@@ -19,7 +19,8 @@ extern "C"
 {
   ROBOT_MODULE_API void MC_RTC_ROBOT_MODULE(std::vector<std::string> & names) // NOLINT(readability-identifier-naming)
   {
-    names = {"xArm5", "xArm5FloatingBase", "xArm6", "xArm6FloatingBase", "xArm7", "xArm7FloatingBase"};
+    names = {"xArm5",       "xArm5FloatingBase",       "xArm6", "xArm6FloatingBase", "xArm7", "xArm7FloatingBase",
+             "xArm7Mirror", "xArm7MirrorFloatingBase", "Lite6", "Lite6FloatingBase"};
   }
   ROBOT_MODULE_API void destroy(mc_rbdyn::RobotModule * ptr)
   {
@@ -54,6 +55,24 @@ extern "C"
     if(n == "xArm7FloatingBase")
     {
       return new mc_robots::XArmRobotModule("xarm7", false);
+    }
+
+    if(n == "xArm7Mirror")
+    {
+      return new mc_robots::XArmRobotModule("xarm7_mirror", true);
+    }
+    if(n == "xArm7MirrorFloatingBase")
+    {
+      return new mc_robots::XArmRobotModule("xarm7_mirror", false);
+    }
+
+    if(n == "Lite6")
+    {
+      return new mc_robots::XArmRobotModule("lite6", true);
+    }
+    if(n == "Lite6FloatingBase")
+    {
+      return new mc_robots::XArmRobotModule("lite6", false);
     }
 
     mc_rtc::log::error("xArm module cannot create an object of type {}", n);

@@ -1,4 +1,4 @@
-set(XARM_TEST_MODELS "xArm5" "xArm6" "xArm7")
+set(XARM_TEST_MODELS "xArm5" "xArm6" "xArm7" "xArm7Mirror" "Lite6")
 
 if(TARGET xarm)
   foreach(MODEL ${XARM_TEST_MODELS})

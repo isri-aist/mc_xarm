@@ -1,3 +1,4 @@
-# Avilable robots: xArm5, xArm5FloatingBase, xArm6, xArm6FloatingBase, xArm7, xArm7FloatingBase
-MainRobot: xArm7
+# Avilable robots: xArm5, xArm6, xArm7, xArm7Mirror, Lite6
+# All robots have support for FloatingBase: xArm5FloatingBase, xArm6FloatingBase, etc.
+MainRobot: xArm7FloatingBase
 Enabled: Posture

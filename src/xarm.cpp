@@ -1,6 +1,8 @@
 #include "xarm.h"
 #include "config.h"
 
+#include <regex>
+
 #include <RBDyn/parsers/urdf.h>
 
 #include <boost/filesystem.hpp>
@@ -15,7 +17,13 @@ XArmRobotModule::XArmRobotModule(const std::string & name, bool fixed)
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
 
   // Determine dof from name
-  int dof = std::stoi(name.substr(4));
+  std::smatch match;
+  std::regex number_regex("([0-9]+)");
+  int dof{0};
+  if(std::regex_search(name, match, number_regex))
+  {
+    dof = std::stoi(match.str(1));
+  }
 
   // Build link names
   std::vector<std::string> links;
