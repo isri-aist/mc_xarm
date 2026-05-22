@@ -1,6 +1,8 @@
 # mc_xarm
 
-mc_rtc robot module for [UFACTORY xArm](https://www.ufactory.cc/) series robots (xArm5, xArm6, xArm7).
+mc_rtc robot modules for [UFACTORY xArm](https://www.ufactory.cc/) series robots: xArm5, xArm6, xArm7, xArm7Mirror, Lite6.
+
+Manipulators xArm7 and Lite6 are also available to run with mc_mujoco.
 
 ## Dependencies
 
@@ -8,7 +10,9 @@ mc_rtc robot module for [UFACTORY xArm](https://www.ufactory.cc/) series robots 
 
 - [mc_rtc](https://jrl-umi3218.github.io/mc_rtc/)
 
-- [xarm_description](https://github.com/xArm-Developer/xarm_ros2)
+- [mc_mujoco](https://github.com/rohanpsingh/mc_mujoco) (if using mujoco)
+
+- [xarm_description](https://github.com/xArm-Developer/xarm_ros2/tree/humble/xarm_description)
 
 ```sh
 git clone https://github.com/xArm-Developer/xarm_ros2.git
@@ -38,3 +42,18 @@ mc_rtc_ticker -f etc/mc_rtc.yaml
 <p align="center">
   <img src="etc/xarm7.png" alt="xArm7 Ticker Test" height="500">
 </p>
+
+## mc_mujoco
+
+If you would like to use the robots with mc_mujoco, use cmake with options `MUJOCO_DESCRIPTION_XARM7` or `MUJOCO_DESCRIPTION_LITE6` on.
+
+```sh
+cmake .. -DMUJOCO_DESCRIPTION_XARM7=ON
+# or
+cmake .. -DMUJOCO_DESCRIPTION_LITE6=ON
+```
+
+To test with mc_mujoco
+```sh
+mc_mujoco -f etc/mc_rtc.yaml
+```
