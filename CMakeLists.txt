@@ -85,7 +85,12 @@ add_custom_target(generate-xarm-urdf ALL DEPENDS ${GENERATED_URDF_FILES})
 # Build (XARM_DESCRIPTION_PATH is now set to the install-time value,
 # so configure_file in src/ will bake in the correct path)
 add_subdirectory(src)
-add_subdirectory(mujoco_description)
+
+option(MUJOCO_DESCRIPTION_LITE6 "Install mc_mujoco description Lite6" OFF)
+option(MUJOCO_DESCRIPTION_XARM7 "Install mc_mujoco description xArm7" OFF)
+if($MUJOCO_DESCRIPTION_LITE6 OR $MUJOCO_DESCRIPTION_XARM7)
+  add_subdirectory(mujoco_description)
+endif()
 
 if(BUILD_TESTING)
   add_subdirectory(tests)
