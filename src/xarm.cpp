@@ -59,6 +59,11 @@ XArmRobotModule::XArmRobotModule(const std::string & name, bool fixed)
       _stance[j.name()] = {0.0};
     }
   }
+
+  if(name != "lite6")
+  {
+    _forceSensors.push_back(mc_rbdyn::ForceSensor("EEForceSensor", "link7", sva::PTransformd::Identity()));
+  }
 }
 
 } // namespace mc_robots
