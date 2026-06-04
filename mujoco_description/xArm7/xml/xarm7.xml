@@ -96,6 +96,11 @@
     <motor name="act7" joint="joint7" class="size3"/>
   </actuator>
 
+  <sensor>
+    <force name="ee_force" site="attachment_site"/>
+    <torque name="ee_torque" site="attachment_site"/>
+  </sensor>
+
   <keyframe>
     <key name="home" qpos="0 0 0 .909 0 1.15644 0" ctrl="0 -.247 0 .909 0 1.15644 0"/>
   </keyframe>
