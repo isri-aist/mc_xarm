@@ -1,7 +1,7 @@
-# XARM_DESCRIPTION_PATH is set by the parent CMakeLists.txt to the
-# install-time path (CMAKE_INSTALL_PREFIX/share/mc_xarm) *before*
-# add_subdirectory(src) is called, so configure_file bakes in the
-# correct runtime path in both generated files.
+# XARM_DESCRIPTION_PATH is set by the parent CMakeLists.txt to the install-time
+# path (CMAKE_INSTALL_PREFIX/share/mc_xarm) *before* add_subdirectory(src) is
+# called, so configure_file bakes in the correct runtime path in both generated
+# files.
 
 # Generate xarm.cpp from the template (substitutes @XARM_DESCRIPTION_PATH@)
 # configure_file(xarm.in.cpp "${CMAKE_CURRENT_BINARY_DIR}/xarm.cpp")
