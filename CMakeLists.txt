@@ -16,6 +16,7 @@ include(CTest)
 
 find_program(XACRO xacro REQUIRED)
 find_package(mc_rtc REQUIRED)
+find_package(mc_mujoco OPTIONAL)
 
 find_description_package(xarm_description REQUIRED)
 
@@ -86,9 +87,7 @@ add_custom_target(generate-xarm-urdf ALL DEPENDS ${GENERATED_URDF_FILES})
 # so configure_file in src/ will bake in the correct path)
 add_subdirectory(src)
 
-option(MUJOCO_DESCRIPTION_LITE6 "Install mc_mujoco description Lite6" OFF)
-option(MUJOCO_DESCRIPTION_XARM7 "Install mc_mujoco description xArm7" OFF)
-if($MUJOCO_DESCRIPTION_LITE6 OR $MUJOCO_DESCRIPTION_XARM7)
+if(mc_mujoco_FOUND)
   add_subdirectory(mujoco_description)
 endif()
 
