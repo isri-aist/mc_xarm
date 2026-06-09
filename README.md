@@ -1,8 +1,7 @@
 # mc_xarm
 
 mc_rtc robot modules for [UFACTORY xArm](https://www.ufactory.cc/) series robots: xArm5, xArm6, xArm7, xArm7Mirror, Lite6.
-
-Manipulators xArm7 and Lite6 are also available to run with mc_mujoco.
+All manipulators are alse available to run with mc_mujoco.
 
 ## Dependencies
 

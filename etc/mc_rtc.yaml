@@ -1,5 +1,4 @@
 # Avilable robots: xArm5, xArm6, xArm7, xArm7Mirror, Lite6
 # All robots have support for FloatingBase: xArm5FloatingBase, xArm6FloatingBase, etc.
-# xArm7 and Lite6 have support for mc_mujoco
 MainRobot: xArm7
 Enabled: Posture

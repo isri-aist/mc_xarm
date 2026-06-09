@@ -11,12 +11,15 @@ if(HONOR_INSTALL_PREFIX)
   set(MC_MUJOCO_SHARE_DESTINATION "${CMAKE_INSTALL_PREFIX}")
 endif()
 
+# Generate XML with resolved mesh paths
+configure_file(xml/xarm7.in.xml "${CMAKE_CURRENT_BINARY_DIR}/xml/xarm7.xml")
+
 set(XARM7_XML_MODEL_PATH "xml/xarm7.xml")
 set(XARM7_PDGAINS_PATH "pdgains/PDgains_sim.dat")
 
 if(SRC_MODE)
   set(XARM7_XML_MODEL_PATH
-      "${CMAKE_CURRENT_SOURCE_DIR}/${XARM7_XML_MODEL_PATH}"
+      "${CMAKE_CURRENT_BINARY_DIR}/${XARM7_XML_MODEL_PATH}"
   )
   set(XARM7_PDGAINS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/${XARM7_PDGAINS_PATH}")
 else()
@@ -38,15 +41,7 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/mc_mujoco/xarm7.yaml"
 install(DIRECTORY pdgains DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}/XARM7"
                                       FILES_MATCHING PATTERN "*.dat"
 )
-install(
-  DIRECTORY xml
-  DESTINATION
-    "${MC_MUJOCO_SHARE_DESTINATION}/XARM7"
-    FILES_MATCHING
-    PATTERN
-    "*.xml"
-    PATTERN
-    "*.obj"
-    PATTERN
-    "*.stl"
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/xml/xarm7.xml"
+        DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}/XARM7/xml"
 )

@@ -1,0 +1,2 @@
+xmlModelPath: "@XARM5_XML_MODEL_PATH@"
+pdGainsPath: "@XARM5_PDGAINS_PATH@"
