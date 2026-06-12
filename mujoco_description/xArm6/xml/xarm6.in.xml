@@ -80,8 +80,8 @@
   </actuator>
 
   <sensor>
-    <force name="ee_force" site="attachment_site"/>
-    <torque name="ee_torque" site="attachment_site"/>
+    <force name="EEForceSensor_fsensor" site="attachment_site"/>
+    <torque name="EEForceSensor_tsensor" site="attachment_site"/>
   </sensor>
 
   <keyframe>
