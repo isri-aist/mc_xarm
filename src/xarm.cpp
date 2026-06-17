@@ -59,7 +59,7 @@ XArmRobotModule::XArmRobotModule(const std::string & name, bool fixed)
 
   if(name != "lite6")
   {
-    _forceSensors.push_back(mc_rbdyn::ForceSensor("EEForceSensor", "link7", sva::PTransformd::Identity()));
+    _forceSensors.emplace_back(mc_rbdyn::ForceSensor("EEForceSensor", "link7", sva::PTransformd::Identity()));
   }
 }
 
