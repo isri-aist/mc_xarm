@@ -15,7 +15,7 @@ include(CTest)
 
 find_program(XACRO xacro REQUIRED)
 find_package(mc_rtc REQUIRED)
-find_package(mc_mujoco OPTIONAL)
+find_package(mc_mujoco QUIET)
 
 find_description_package(xarm_description REQUIRED)
 
