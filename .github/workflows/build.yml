@@ -111,7 +111,14 @@ jobs:
           compiler: ${{ matrix.compiler }}
           build-type: ${{ matrix.build-type }}
 
+      # ── Linting ──
       - name: Run clang-tidy
         run: |
           pip install pre-commit
           pre-commit run clang-tidy --all-files --hook-stage manual
+
+      # ── Debug in Case of Failure ──
+      - name: Dump LastTest.log
+        if: failure()
+        run: |
+          cat build/Testing/Temporary/LastTest.log || true
